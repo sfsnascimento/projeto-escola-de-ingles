@@ -19,6 +19,16 @@ class NivelController {
       return res.status(500).json(error.message);
     }
   }
+
+  static async criaNivel(req, res) {
+    const novoNivel = req.body;
+    try {
+      const novoNivelCriado = await Niveis.create(novoNivel);
+      return res.status(200).json(novoNivelCriado);
+    } catch (error) {
+      return res.status(500).json(error.message);
+    }
+  }
 }
 
 module.exports = NivelController;
