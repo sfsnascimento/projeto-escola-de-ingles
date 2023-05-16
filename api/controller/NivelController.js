@@ -29,6 +29,18 @@ class NivelController {
       return res.status(500).json(error.message);
     }
   }
+
+  static async atualizaNivel(req, res) {
+    const novasInfos = req.body;
+    const { id } = req.params;
+    try {
+      await Niveis.update(novasInfos, { where: { id: +id } });
+      const nivelAtualizado = await Niveis.findOne({ where: { id: +id } });
+      return res.status(200).json(nivelAtualizado);
+    } catch (error) {
+      return res.status(500).json(error.message);
+    }
+  }
 }
 
 module.exports = NivelController;
