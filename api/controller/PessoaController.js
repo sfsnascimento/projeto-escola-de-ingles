@@ -13,7 +13,7 @@ class PessoaController {
   static async pegaUmaPessoa(req, res) {
     const { id } = req.params;
     try {
-      const pegaUmaPessoa = await Pessoas.findOne({ where: +id });
+      const pegaUmaPessoa = await Pessoas.findOne({ where: { id: +id } });
       return res.status(200).json(pegaUmaPessoa);
     } catch (error) {
       return res.status(500).json(error.message);
