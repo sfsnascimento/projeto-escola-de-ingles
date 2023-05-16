@@ -5,6 +5,7 @@ const router = Router();
 
 router
   .get('/turmas', TurmaController.pegaTodasAsTurmas)
-  .get('/turmas/:id', TurmaController.pegaUmaTurma);
+  .get('/turmas/:id', TurmaController.pegaUmaTurma)
+  .post('/turmas', TurmaController.criaTurma);
 
 module.exports = router;
