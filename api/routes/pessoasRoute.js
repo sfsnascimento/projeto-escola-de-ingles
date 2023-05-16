@@ -6,6 +6,7 @@ const router = Router();
 router
   .get('/pessoas', PessoaController.pegaTodasAsPessoas)
   .get('/pessoas/:id', PessoaController.pegaUmaPessoa)
-  .post('/pessoas', PessoaController.criaPessoa);
+  .post('/pessoas', PessoaController.criaPessoa)
+  .put('/pessoas/:id', PessoaController.atualizaPessoa);
 
 module.exports = router;
