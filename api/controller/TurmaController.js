@@ -19,6 +19,16 @@ class TurmaController {
       return res.status(404).json(error.message);
     }
   }
+
+  static async criaTurma(req, res) {
+    const novaTurma = req.body;
+    try {
+      const novaTurmaCriada = await Turmas.create(novaTurma);
+      return res.status(200).json(novaTurmaCriada);
+    } catch (error) {
+      return res.status(500).json(error.message);
+    }
+  }
 }
 
 module.exports = TurmaController;
