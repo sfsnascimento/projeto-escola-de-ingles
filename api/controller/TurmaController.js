@@ -29,6 +29,18 @@ class TurmaController {
       return res.status(500).json(error.message);
     }
   }
+
+  static async atualizaTurma(req, res) {
+    const novasInfos = req.body;
+    const { id } = req.params;
+    try {
+      await Turmas.update(novasInfos, { where: { id: +id } });
+      const turmaAtualizada = await Turmas.findOne({ where: { id: +id } });
+      return res.status(200).json(turmaAtualizada);
+    } catch (error) {
+      return res.status(500).json(error.message);
+    }
+  }
 }
 
 module.exports = TurmaController;
