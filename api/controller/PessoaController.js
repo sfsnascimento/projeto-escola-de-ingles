@@ -95,6 +95,16 @@ class PessoaController {
       return res.status(500).json(error.message);
     }
   }
+
+  static async apagaMatricula(req, res) {
+    const { matriculaId } = req.params;
+    try {
+      await Matriculas.destroy({ where: { id: +matriculaId }});
+      return res.status(200).json({ mensagem: `id ${matriculaId} deletado` });
+    } catch (error) {
+      return res.status(500).json(error.message);
+    }
+  }
 }
 
 module.exports = PessoaController;
