@@ -10,7 +10,7 @@ Aplicação desenvolvida em `Node.js` usando o pacote `sequelize` para fazer um 
 2. Instale as dependências
   * `npm install`
 
-3. Crie um arquivo .env na raiz do projeto e coloque as informações de acesso ao banco de dados:
+3. Crie um arquivo `.env` na raiz do projeto e coloque as informações de acesso ao banco de dados:
   * `HOSTNAME=seu host`
   * `MYSQL_USER=seu usuário`
   * `MYSQL_PASSWORD=sua senha`
