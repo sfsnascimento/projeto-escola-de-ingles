@@ -14,7 +14,6 @@ Aplicação desenvolvida em `Node.js` usando o pacote `sequelize` para fazer um 
   *HOSTNAME=seu host
   *MYSQL_USER=seu usuário
   *MYSQL_PASSWORD=sua senha
-  * `npm start`
 
 4. Inicie a aplicação
   * `npm start`
