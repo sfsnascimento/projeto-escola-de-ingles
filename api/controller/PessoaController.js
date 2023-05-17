@@ -1,4 +1,4 @@
-const { Pessoas } = require('../db/models');
+const { Pessoas, Matriculas } = require('../db/models');
 
 class PessoaController {
   static async pegaTodasAsPessoas(_req, res) {
@@ -47,6 +47,22 @@ class PessoaController {
     try {
       await Pessoas.destroy({ where: { id: +id }});
       return res.status(200).json({mensagem: `id ${id} deletado`});
+    } catch (error) {
+      return res.status(500).json(error.message);
+    }
+  }
+
+  static async pegaUmaMatricula(req, res) {
+    console.log(req)
+    const { estudanteId, matriculaId } = req.params;
+    try {
+      const pegaUmaMatricula = await Matriculas.findOne({
+        where: {
+          id: +matriculaId,
+          estudante_id: +estudanteId
+        } 
+      });
+      return res.status(200).json(pegaUmaMatricula);
     } catch (error) {
       return res.status(500).json(error.message);
     }
